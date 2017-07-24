@@ -10,7 +10,7 @@ import requests
 from urllib.parse import quote
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/twitter")
 def hello():
     CONSUMER_KEY = 'sbmaTK8blnFbLo4FeDxe6HkDm'
     CONSUMER_SECRET = 'aRgoP3t1BOs322MXDbyaVABH5Vfqjy44bKwur2r8UPkb6Ij1pH'
