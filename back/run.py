@@ -32,7 +32,6 @@ def twitter_search(search_string):
 
 @app.route("/meetup/<search_string>")
 def meetup_search(search_string):
-
     CONSUMER_KEY = "503b6f527ac484931d566d6b3c752"
     url = "http://api.meetup.com/find/events?text={0}&key={1}&radius=global".format(search_string, CONSUMER_KEY)
     meetup_request = requests.get(url)
