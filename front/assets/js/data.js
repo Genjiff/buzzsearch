@@ -3,7 +3,7 @@ function getGithubUrl(techName) {
 }
 
 function getMeetupUrl(techName) {
-  return "";
+  return "http://127.0.0.1:5000/meetup/" + techName;
 }
 
 function getTwitterUrl(techName) {

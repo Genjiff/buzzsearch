@@ -28,3 +28,29 @@ function renderGithubResults(url, section) {
 
   xhr.send();
 }
+
+
+function renderMeetupResults(map, url) {
+  console.log("Requesting", url);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+
+  xhr.addEventListener("load", function() {
+    if (xhr.status == 200) {
+      var json = JSON.parse(xhr.responseText);
+      json.forEach(function(techEvent) {
+        var position = {'lat': techEvent.group.lat, 'lng': techEvent.group.lon }
+        var marker = new google.maps.Marker({
+          position: position,
+          map: map
+        });
+
+      });   
+    } else {
+      console.log("Error");
+    }
+  });
+
+  xhr.send();
+}
