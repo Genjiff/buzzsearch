@@ -11,7 +11,7 @@ from urllib.parse import quote
 app = Flask(__name__)
 
 @app.route("/twitter/<search_string>")
-def hello(search_string):
+def twitter_search(search_string):
     CONSUMER_KEY = 'sbmaTK8blnFbLo4FeDxe6HkDm'
     CONSUMER_SECRET = 'aRgoP3t1BOs322MXDbyaVABH5Vfqjy44bKwur2r8UPkb6Ij1pH'
 
@@ -29,3 +29,16 @@ def hello(search_string):
         # tweet_text += txt['html']
         i = i + 1
     return json.dumps(response)
+
+@app.route("/meetup/<search_string>")
+def meetup_search(search_string):
+
+    CONSUMER_KEY = "503b6f527ac484931d566d6b3c752"
+    url = "http://api.meetup.com/find/events?text={0}&key={1}&radius=global".format(search_string, CONSUMER_KEY)
+    meetup_request = requests.get(url)
+    response = app.response_class(
+        response = meetup_request.text,
+        status = 200,
+        mimetype = "application/json"
+    )
+    return response
