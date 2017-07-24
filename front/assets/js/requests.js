@@ -25,7 +25,6 @@ function renderGithubResults(url, section) {
       console.log("Error");
     }
   });
-
   xhr.send();
 }
 
