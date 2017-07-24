@@ -1,7 +1,7 @@
 # buzzsearch
 Busca em sites de social media
 
-pip install flask, twitter-application-only-auth, requests
+pip install flask, twitter-application-only-auth, requests, flask-cors
 
 no terminal execute:
 $ export FLASK_APP=back/run.py

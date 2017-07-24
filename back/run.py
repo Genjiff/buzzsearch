@@ -4,11 +4,14 @@
 # para rodar o servidor execute:
 # $ flask run
 from flask import Flask
+from flask_cors import CORS
 from application_only_auth import Client
 import json
 import requests
 from urllib.parse import quote
+
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/twitter/<search_string>")
 def twitter_search(search_string):
