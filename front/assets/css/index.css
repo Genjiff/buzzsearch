@@ -5,6 +5,9 @@
 body{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
+	background-image: url('../img/desk-black.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 a {
