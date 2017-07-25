@@ -3,9 +3,102 @@
 }
 
 body{
-	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 }
+
+a {
+	text-decoration: none;
+}
+
+/* Main */
+.main-box {
+	width: 980px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Navigation */
+.main-box .main-nav {
+	height: 40px;
+    padding-bottom: 0;
+    padding-top: 15px;
+    margin-top: 60px;
+}
+
+.main-box .main-nav .nav-items {
+	display: inline;
+	list-style: none;
+}
+
+.main-box .main-nav ul li {
+	display: inline-block;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.main-box .main-nav ul li a {
+	padding-bottom: 5px;
+	font-size: 19px;
+}
+
+.main-box .main-nav ul li a,
+.main-box .main-nav ul li a:visited,
+.main-box .main-nav ul li a:hover {
+	color: white;
+}
+
+.main-box .main-nav ul li a:hover {
+	border-bottom: 1px solid white;
+}
+
+.main-box .main-nav ul li.left-nav-item {
+	float: left;
+}
+
+.main-box .main-nav ul li.right-nav-item {
+	float: right;
+	margin-left: 20px;
+}
+
+/* Main Text */
+.main-box .main-text-box {
+	margin-top: 15%;
+}
+
+.main-box .main-text-box h1 {
+	text-align: center;
+	color: white;
+	text-shadow: 0 1px 1px #000;
+	font-size: 40px;
+}
+
+/* Search Box */
+.main-box .search-box {
+	margin: 0 auto;
+	width: 400px;
+	vertical-align: middle;
+}
+
+.main-box .search-box form {
+	box-sizing: border-box;
+	background-color: rgba(255,255,255,0.5) ;
+    padding: 20px 20px;
+    margin-top: 35px;
+}
+
+.main-box .search-box input[type=text] {
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	border: 1px solid #ccc;
+	font-size: 18px;
+	color: #585858;
+}
+
 /*
 section#main {
 	width: 60%;
@@ -14,7 +107,7 @@ section#main {
 }*/
 
 
-section#searchBox {
+/*section#searchBox {;
 	margin: 0 auto;
 	width: 300px;
 	height: 100px;
@@ -27,11 +120,15 @@ section#searchBox {
 section#searchBox label{
 	float:left;
 	width: 100%;
+	font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 42px;
+    overflow-x: hidden;
 	
 	text-align: center;
 	color: white;
 	margin-bottom: 10px;
-	font-size: 18px;
 }
 
 section#searchBox input[type=text] {
@@ -47,5 +144,5 @@ section#searchBox input[type=submit] {
 	display: block;
 	width: 30%;
 	margin: 0 auto;
-}
+}*/
 
