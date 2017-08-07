@@ -14,9 +14,24 @@ a {
 	text-decoration: none;
 }
 
+@media (min-width: 768px) {
+  .main-box {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .main-box {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .main-box {
+    width: 1170px;
+  }
+}
+
 /* Main */
 .main-box {
-	width: 980px;
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;

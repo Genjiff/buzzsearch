@@ -6,16 +6,41 @@
    <meta name="keywords" content="">
    <meta name="author" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Buzz Search | Searching</title>
-   
+   <title>Buzz Search</title>
+
    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,300italic,700,400,300" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/result.css">
 </head>
+<body>
+<div class="main-box">
+	<nav class="main-nav">
+	  <ul class='nav-items'>
+	     <li class='left-nav-item'><a class='company-name' href="#">Buzz Search</a></li>
+	     <li class='right-nav-item'><a href="#">Teste</a></li>
+	     <li class='right-nav-item'><a href="#">Sobre</a></li>
+	  </ul>
+	</nav>
 
-<section id="twitterResults"></section>
-<section id="githubResults"></section>
-<section id="meetupMapResults"></section>
+	<section id="tweets-section">
+		<h2>Últimos tweets</h2>
+		<div class='tweet-box invisible'></div>
+	</section>
+
+	<section id="github-section">
+		<h2>Repositórios relevantes</h2>
+
+		<div>
+
+		</div>
+	</section>
+
+	<section id='maps-section'>
+		<h2>Eventos</h2>
+		<div id="meetupMapResults"></div>
+	</section> 
+		
+</div>
 
 <script type="text/javascript" src="assets/js/url-parser.js"></script>
 <script type="text/javascript" src="assets/js/data.js"></script>

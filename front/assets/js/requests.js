@@ -1,3 +1,32 @@
+function renderTwitterResults(url, section) {
+  console.log("Requesting twitter results", url);
+
+  var twitterApiUrl = 'https://publish.twitter.com/oembed?url='
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+
+  xhr.addEventListener("load", function() {
+    if (xhr.status == 200) {
+      var json = JSON.parse(xhr.responseText);
+      json.forEach(function(element) {
+        var tweetBoxModel = document.getElementsByClassName('tweet-box');
+        var newTweetBox = tweetBoxModel[0].cloneNode();
+
+        newTweetBox.classList.remove("invisible");
+
+        newTweetBox.innerHTML = element.html;
+        document.getElementById(section).appendChild(newTweetBox);
+      });   
+    } else {
+      console.log("Error");
+    }
+  });
+
+  xhr.send();
+
+  
+}
 
 function renderGithubResults(url, section) {
   console.log("Requesting", url);
@@ -18,8 +47,6 @@ function renderGithubResults(url, section) {
                       "</ul></div><br>";
 
         document.getElementById(section).innerHTML += html;
-
-
       });   
     } else {
       console.log("Error");
@@ -44,7 +71,6 @@ function renderMeetupResults(map, url) {
           position: position,
           map: map
         });
-
       });   
     } else {
       console.log("Error");
