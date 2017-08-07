@@ -21,16 +21,14 @@ def twitter_search(search_string):
     client = Client(CONSUMER_KEY, CONSUMER_SECRET)
     tweets = client.request("https://api.twitter.com/1.1/search/tweets.json?q={0}&result_type=recent".format(search_string))
 
-    response = {}
-    i = 0
-    for tweet in tweets['statuses']:
+    response = []
+    for index, tweet in enumerate(tweets['statuses']):
         url = "https://twitter.com/{0}/status/{1}".format(tweet['user']['screen_name'], tweet['id_str'])
-        url = quote(url, safe='')
-        response[i] = url
-        # r = requests.get('https://publish.twitter.com/oembed?url=' + url)
-        # txt = json.loads(r.text)
-        # tweet_text += txt['html']
-        i = i + 1
+        r = requests.get('https://publish.twitter.com/oembed?url=' + url)
+        j = json.loads(r.text)
+        response.append(j)
+        if index >= 6:
+            break
     return json.dumps(response)
 
 @app.route("/meetup/<search_string>")
