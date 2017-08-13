@@ -1,0 +1,173 @@
+* {
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	background-image: url('../img/desk-black.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+a {
+	text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .main-box {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .main-box {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .main-box {
+    width: 1170px;
+  }
+}
+
+.invisible { display: none }
+
+/* Main */
+.main-box {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Navigation */
+.main-box .main-nav {
+	height: 40px;
+    padding-bottom: 0;
+    padding-top: 15px;
+    margin-top: 60px;
+}
+
+.main-box .main-nav .nav-items {
+	display: inline;
+	list-style: none;
+}
+
+.main-box .main-nav ul li {
+	display: inline-block;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.main-box .main-nav ul li a {
+	padding-bottom: 5px;
+	font-size: 19px;
+}
+
+.main-box .main-nav ul li a,
+.main-box .main-nav ul li a:visited,
+.main-box .main-nav ul li a:hover {
+	color: white;
+}
+
+.main-box .main-nav ul li a:hover {
+	border-bottom: 1px solid white;
+}
+
+.main-box .main-nav ul li.left-nav-item {
+	float: left;
+}
+
+.main-box .main-nav ul li.right-nav-item {
+	float: right;
+	margin-left: 20px;
+}
+
+
+/* Google Section */
+section#maps-section,
+section#github-section,
+section#tweets-section {
+	box-sizing: border-box;
+	background-color: rgba(255,255,255,0.5) ;
+    padding: 20px 20px;
+}
+
+section#maps-section h2, 
+section#github-section h2,
+section#tweets-section h2
+ {
+	font-size: 18px;
+	font-weight: bold;
+	color: #383838;
+	margin-bottom: 10px;
+}
+
+section#github-section,
+section#tweets-section {
+	margin: 20px 0;
+}
+
+section#github-section,
+section#maps-section {
+	width: 66%;
+	float:right;
+}
+
+section#maps-section {
+	height: 475px;
+}
+
+section#maps-section #meetupMapResults { 
+	height: 92%;
+	width: 100%; 
+}
+
+section#github-section {
+	height: 300px;
+}
+
+section#tweets-section {
+	float:left;
+	width: 32%;
+}
+
+section#tweets-section .tweet-box {
+	margin-bottom: 15px;
+	background-color: white;
+    padding: 10px;
+}
+
+section#tweets-section .tweet-box p {
+	font-weight: bold;
+}
+
+
+section .section-title {
+	margin-bottom: 40px;
+}
+
+section .section-title h2,
+section .section-title img {
+	float: left;
+}
+
+section .section-title img {
+	width: 50px;
+	margin-top: -15px;
+}
+
+
+section#error-section {
+	padding: 15px;
+	margin: 10px 0;
+	border: 1px solid #ebccd1;
+	color: #a94442;
+	background-color: #f2dede;
+}
+
+/*#githubResults {
+  height: 50%;
+  width: 960px; 
+  margin: 0 auto;
+}*/

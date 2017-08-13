@@ -1,89 +1,3 @@
-* {
-	box-sizing: border-box;
-}
-
-body{
-	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
-	background-image: url('../img/desk-black.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-a {
-	text-decoration: none;
-}
-
-@media (min-width: 768px) {
-  .main-box {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .main-box {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .main-box {
-    width: 1170px;
-  }
-}
-
-.invisible { display: none }
-
-/* Main */
-.main-box {
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-/* Navigation */
-.main-box .main-nav {
-	height: 40px;
-    padding-bottom: 0;
-    padding-top: 15px;
-    margin-top: 60px;
-}
-
-.main-box .main-nav .nav-items {
-	display: inline;
-	list-style: none;
-}
-
-.main-box .main-nav ul li {
-	display: inline-block;
-	padding-right: 5px;
-	padding-left: 5px;
-}
-
-.main-box .main-nav ul li a {
-	padding-bottom: 5px;
-	font-size: 19px;
-}
-
-.main-box .main-nav ul li a,
-.main-box .main-nav ul li a:visited,
-.main-box .main-nav ul li a:hover {
-	color: white;
-}
-
-.main-box .main-nav ul li a:hover {
-	border-bottom: 1px solid white;
-}
-
-.main-box .main-nav ul li.left-nav-item {
-	float: left;
-}
-
-.main-box .main-nav ul li.right-nav-item {
-	float: right;
-	margin-left: 20px;
-}
-
-
 /* Google Section */
 section#maps-section,
 section#github-section,
@@ -93,7 +7,7 @@ section#tweets-section {
     padding: 20px 20px;
 }
 
-section#maps-section h2, 
+section#maps-section h2,
 section#github-section h2,
 section#tweets-section h2
  {
@@ -118,9 +32,9 @@ section#maps-section {
 	height: 475px;
 }
 
-section#maps-section #meetupMapResults { 
+section#maps-section #meetupMapResults {
 	height: 92%;
-	width: 100%; 
+	width: 100%;
 }
 
 section#github-section {
@@ -168,6 +82,6 @@ section#error-section {
 
 /*#githubResults {
   height: 50%;
-  width: 960px; 
+  width: 960px;
   margin: 0 auto;
 }*/
