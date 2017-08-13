@@ -87,7 +87,7 @@ function renderGithubResults(url, section) {
 
 function renderMeetupResults(map, url) {
     console.log("Requesting", url);
-
+    // see https://developers.google.com/maps/documentation/javascript/infowindows#open
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
 
