@@ -27,7 +27,7 @@ def twitter_search(search_string):
         r = requests.get('https://publish.twitter.com/oembed?url=' + url)
         j = json.loads(r.text)
         response.append(j)
-        if index >= 6:
+        if index >= 9:
             break
     return json.dumps(response)
 
