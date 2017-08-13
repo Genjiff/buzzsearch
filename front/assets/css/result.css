@@ -143,6 +143,29 @@ section#tweets-section .tweet-box p {
 }
 
 
+section .section-title {
+	margin-bottom: 40px;
+}
+
+section .section-title h2,
+section .section-title img {
+	float: left;
+}
+
+section .section-title img {
+	width: 50px;
+	margin-top: -15px;
+}
+
+
+section#error-section {
+	padding: 15px;
+	margin: 10px 0;
+	border: 1px solid #ebccd1;
+	color: #a94442;
+	background-color: #f2dede;
+}
+
 /*#githubResults {
   height: 50%;
   width: 960px; 

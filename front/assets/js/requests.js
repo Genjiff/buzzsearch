@@ -1,81 +1,95 @@
 function renderTwitterResults(url, section) {
-  console.log("Requesting twitter results", url);
+    console.log("Requesting twitter results", url);
 
-  var twitterApiUrl = 'https://publish.twitter.com/oembed?url='
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
+    xhr.addEventListener("load", function () {
+        if (xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            json.forEach(function (element) {
+                var tweetBoxModel = document.getElementsByClassName('tweet-box');
+                var newTweetBox = tweetBoxModel[0].cloneNode();
 
-  xhr.addEventListener("load", function() {
-    if (xhr.status == 200) {
-      var json = JSON.parse(xhr.responseText);
-      json.forEach(function(element) {
-        var tweetBoxModel = document.getElementsByClassName('tweet-box');
-        var newTweetBox = tweetBoxModel[0].cloneNode();
+                newTweetBox.classList.remove("invisible");
 
-        newTweetBox.classList.remove("invisible");
+                newTweetBox.innerHTML = element.html;
+                document.getElementById(section).appendChild(newTweetBox);
+            });
 
-        newTweetBox.innerHTML = element.html;
-        document.getElementById(section).appendChild(newTweetBox);
-      });   
-    } else {
-      console.log("Error");
-    }
-  });
+            var loading = document.querySelector('#' + section + ' .loading');
+            loading.classList.add('invisible');
+        } else {
+            console.log("Error");
+        }
+    });
 
-  xhr.send();
+    xhr.onerror = function () {
+        var errorBox = document.querySelector('#error-section');
+        errorBox.classList.remove('invisible');
 
-  
+        var loadings = document.querySelectorAll('.loading');
+        loadings.forEach(function (element) {
+            element.classList.add("invisible");
+        });
+
+
+    };
+    xhr.send();
+
 }
 
 function renderGithubResults(url, section) {
-  console.log("Requesting", url);
+    console.log("Requesting", url);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
 
-  xhr.addEventListener("load", function() {
-    if (xhr.status == 200) {
-      var json = JSON.parse(xhr.responseText);
-      json.items.forEach(function(repository) {
+    xhr.addEventListener("load", function () {
+        if (xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            json.items.forEach(function (repository) {
 
-        console.log(repository); 
-        var html = "<div><h2><a href='"+ repository.html_url + "'>" + repository.full_name + "</a></h2>"+
-                      "<ul>" +
-                      "<li>Stars: " + repository.stargazers_count + "</li>" + 
-                      "<li>Forks: " + repository.forks + "</li>" + 
-                      "</ul></div><br>";
+                console.log(repository);
+                var html = "<div><h2><a href='" + repository.html_url + "'>" + repository.full_name + "</a></h2>" +
+                    "<ul>" +
+                    "<li>Stars: " + repository.stargazers_count + "</li>" +
+                    "<li>Forks: " + repository.forks + "</li>" +
+                    "</ul></div><br>";
 
-        document.getElementById(section).innerHTML += html;
-      });   
-    } else {
-      console.log("Error");
-    }
-  });
-  xhr.send();
+                document.getElementById(section).innerHTML += html;
+            });
+        } else {
+            console.log("Error");
+        }
+    });
+    xhr.send();
 }
 
 
 function renderMeetupResults(map, url) {
-  console.log("Requesting", url);
+    console.log("Requesting", url);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
 
-  xhr.addEventListener("load", function() {
-    if (xhr.status == 200) {
-      var json = JSON.parse(xhr.responseText);
-      json.forEach(function(techEvent) {
-        var position = {'lat': techEvent.group.lat, 'lng': techEvent.group.lon }
-        var marker = new google.maps.Marker({
-          position: position,
-          map: map
-        });
-      });   
-    } else {
-      console.log("Error");
-    }
-  });
+    xhr.addEventListener("load", function () {
+        if (xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            json.forEach(function (techEvent) {
+                var position = {'lat': techEvent.group.lat, 'lng': techEvent.group.lon}
+                var marker = new google.maps.Marker({
+                    position: position,
+                    map: map
+                });
+            });
 
-  xhr.send();
+            var loading = document.querySelector('#maps-section .loading');
+            loading.classList.add('invisible');
+        } else {
+            console.log("Error");
+        }
+    });
+
+    xhr.send();
 }
