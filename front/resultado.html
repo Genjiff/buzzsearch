@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="UTF-8">
-   <meta name="description" content="">
-   <meta name="keywords" content="">
-   <meta name="author" content="">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Buzz Search</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzz Search</title>
 
-   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,300italic,700,400,300" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/general.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/result.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,300italic,700,400,300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/general.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/result.css">
 </head>
 <body>
 <div class="main-box">
-	<nav class="main-nav">
-	  <ul class='nav-items'>
-	     <li class='left-nav-item'><a class='company-name' href="index.html">Buzz Search</a></li>
-	     <li class='right-nav-item'><a href="sobre.html">Sobre</a></li>
-	  </ul>
-	</nav>
+    <nav class="main-nav">
+        <ul class='nav-items'>
+            <li class='left-nav-item'><a class='company-name' href="index.html">Buzz Search</a></li>
+            <li class='right-nav-item'><a href="sobre.html">Sobre</a></li>
+        </ul>
+    </nav>
 
-	<section id="error-section" class="invisible">
-		<h2>Infelizmente não foi possível realizar a busca. Verifique sua conexão ou tente mais tarde.</h2>
-	</section>
+    <section id="error-section" class="invisible">
+        <h2>Infelizmente não foi possível realizar a busca. Verifique sua conexão ou tente mais tarde.</h2>
+    </section>
 
-	<section id="tweets-section">
-		<div class="section-title">
-			<h2>Últimos tweets</h2>
-			<img src="assets/img/spinner.gif" alt="Loading" class="loading">
-		</div>
-		<div class='tweet-box invisible'></div>
-	</section>
+    <section id="tweets-section" class="result-section">
+        <div class="section-title">
+            <h2>Últimos tweets</h2>
+            <img src="assets/img/spinner.gif" alt="Loading" class="loading">
+        </div>
+        <div class='tweet-box invisible'></div>
+    </section>
 
-	<section id="github-section">
-		<div class="section-title">
-			<h2>Repositórios relevantes</h2>
-			<img src="assets/img/spinner.gif" alt="Loading" class="loading">
-		</div>
-	</section>
+    <section id="github-section" class="result-section">
+        <div class="section-title">
+            <h2>Repositórios relevantes</h2>
+            <img src="assets/img/spinner.gif" alt="Loading" class="loading">
+        </div>
+    </section>
 
-	<section id='maps-section'>
-		<div class="section-title">
-			<h2>Eventos</h2>
-			<img src="assets/img/spinner.gif" alt="Loading" class="loading">
-		</div>
-		<div id="meetupMapResults"></div>
-	</section>
+    <section id="maps-section" class="result-section">
+        <div class="section-title">
+            <h2>Eventos</h2>
+            <img src="assets/img/spinner.gif" alt="Loading" class="loading">
+        </div>
+        <div id="meetupMapResults"></div>
+    </section>
 </div>
 
 <script type="text/javascript" src="assets/js/url-parser.js"></script>
 <script type="text/javascript" src="assets/js/data.js"></script>
 <script type="text/javascript" src="assets/js/requests.js"></script>
 <script type="text/javascript" src="assets/js/init.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg4n_6Yh91smoT21_RKSib-SXuqgXub0A&callback=initMap"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg4n_6Yh91smoT21_RKSib-SXuqgXub0A&callback=initMap"></script>
 
 </body>
 </html>

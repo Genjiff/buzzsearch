@@ -17,10 +17,21 @@ function renderTwitterResults(url, section) {
                 document.getElementById(section).appendChild(newTweetBox);
             });
 
-            var loading = document.querySelector('#' + section + ' .loading');
+            var loading = document.querySelector('#tweets-section .loading');
             loading.classList.add('invisible');
         } else {
-            console.log("Error");
+            var errorBox = document.querySelector('#error-section');
+            errorBox.classList.remove('invisible');
+
+            var loadings = document.querySelectorAll('.loading');
+            loadings.forEach(function (element) {
+                element.classList.add("invisible");
+            });
+
+            var results = document.querySelectorAll('.result-section');
+            results.forEach(function (element) {
+                element.classList.add("invisible");
+            });
         }
     });
 
@@ -33,6 +44,10 @@ function renderTwitterResults(url, section) {
             element.classList.add("invisible");
         });
 
+        var results = document.querySelectorAll('.result-section');
+        results.forEach(function (element) {
+            element.classList.add("invisible");
+        });
 
     };
     xhr.send();
@@ -49,15 +64,18 @@ function renderGithubResults(url, section) {
         if (xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
             json.items.forEach(function (repository) {
+                var partial = "<div class='repository'>"+
+                    "<h3><a href='"+ repository.html_url  +"' target='_blank'>" + repository.full_name + "</a></h3>" +
+                    "<ul>"+
+                        "<li>Estrelas: "+ repository.stargazers_count +"</li>"+
+                        "<li>Forks: " + repository.forks + "</li>"+
+                    "</ul>"+
+                "</div>";
 
-                console.log(repository);
-                var html = "<div><h2><a href='" + repository.html_url + "'>" + repository.full_name + "</a></h2>" +
-                    "<ul>" +
-                    "<li>Stars: " + repository.stargazers_count + "</li>" +
-                    "<li>Forks: " + repository.forks + "</li>" +
-                    "</ul></div><br>";
+                document.getElementById(section).innerHTML += partial;
 
-                document.getElementById(section).innerHTML += html;
+                var loading = document.querySelector('#github-section .loading');
+                loading.classList.add('invisible');
             });
         } else {
             console.log("Error");

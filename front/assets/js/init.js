@@ -20,8 +20,9 @@ function initTweets() {
 initTweets();
 
 function initRepositories() {
-	
+    var githubUrl = getGithubUrl(techName);
+    renderGithubResults(githubUrl, "github-section");
 }
 
-// var githubUrl = getGithubUrl(techName);
-// renderGithubResults(githubUrl, "githubResults");
+initRepositories();
+
