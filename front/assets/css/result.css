@@ -1,7 +1,8 @@
 /* Google Section */
 section#maps-section,
 section#github-section,
-section#tweets-section {
+section#tweets-section,
+section#search-key-section {
 	box-sizing: border-box;
 	background-color: rgba(255,255,255,0.5) ;
     padding: 20px 20px;
@@ -93,6 +94,14 @@ section#github-section .repository h3 {
 	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 10px;
+}
+
+#search-key-section {
+	margin-top: 10px;
+}
+
+#search-key-section h2 b {
+	font-weight: bold;
 }
 
 
