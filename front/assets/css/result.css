@@ -112,4 +112,13 @@ section#search-key-section h2 {
 
 section#search-key-section a {
 	float: right;
+	color: white;
+}
+
+section#search-key-section a:hover {
+	border-bottom: 1px solid white;
+}
+
+section#search-key-section a:visited {
+	color: white;
 }
