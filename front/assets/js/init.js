@@ -19,10 +19,3 @@ function initRepositories() {
     var githubUrl = getGithubUrl(techName);
     renderGithubResults(githubUrl, "#github-section");
 }
-
-
-var techName = getTechName();
-displaySearchedTechName(techName);
-
-initTweets();
-initRepositories();

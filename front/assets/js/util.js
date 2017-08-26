@@ -3,6 +3,14 @@ function getTechName() {
 	return url.searchParams.get("techName");	
 }
 
+function handleNoConnection() {
+    document.querySelector('#error-section').classList.remove('invisible');
+
+    document.querySelector('#github-section').classList.add('invisible');
+    document.querySelector('#maps-section').classList.add('invisible');
+    document.querySelector('#tweets-section').classList.add('invisible');
+}
+
 function displaySearchedTechName() {
 	document.querySelector('#search-key-section h2').innerHTML += "<b>" + techName + "</b>";
 }
@@ -35,7 +43,6 @@ function showLoading(selector) {
 }
 
 function getFormattedLocation(techEvent) {
-    console.log(techEvent);
     if (techEvent.venue == undefined) return "";
 
     var content = "<p>Local: ";
