@@ -9,8 +9,10 @@ function renderTwitterResults(url, section) {
             var json = JSON.parse(xhr.responseText);
 
             if (json.length == 0) {
-                var loading = document.querySelector('#tweets-section .not-found');
-                loading.classList.remove('invisible');
+                var notfound = document.querySelector('#tweets-section .not-found');
+                var text = document.createTextNode("Não foram encontrados tweets.");
+                notfound.appendChild(text);
+                notfound.classList.remove('invisible');
             } else {
                 json.forEach(function (element) {
                     var tweetBoxModel = document.getElementsByClassName('tweet-box');
@@ -20,22 +22,31 @@ function renderTwitterResults(url, section) {
 
                     newTweetBox.innerHTML = element.html;
                     document.getElementById(section).appendChild(newTweetBox);
-                });    
+                });
             }
         } else {
-            var errorBox = document.querySelector('#error-section');
-            errorBox.classList.remove('invisible');
-
-            var loadings = document.querySelectorAll('.loading');
-            loadings.forEach(function (element) {
-                element.classList.add("invisible");
-            });
-
-            var results = document.querySelectorAll('.result-section');
-            results.forEach(function (element) {
-                element.classList.add("invisible");
-            });
+            var notfound = document.querySelector('#tweets-section .not-found');
+            var text = document.createTextNode(" Erro, tente mais tarde.");
+            notfound.appendChild(text);
+            notfound.classList.remove('invisible');
         }
+
+
+        // } else {
+        //     console.log(xhr.status);
+        //     var errorBox = document.querySelector('#error-section');
+        //     errorBox.classList.remove('invisible');
+
+        //     var loadings = document.querySelectorAll('.loading');
+        //     loadings.forEach(function (element) {
+        //         element.classList.add("invisible");
+        //     });
+
+        //     var results = document.querySelectorAll('.result-section');
+        //     results.forEach(function (element) {
+        //         element.classList.add("invisible");
+        //     });
+        // }
 
         var loading = document.querySelector('#tweets-section .loading');
         loading.classList.add('invisible');
@@ -70,8 +81,10 @@ function renderGithubResults(url, section) {
         if (xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
             if (json.items.length == 0) {
-                var loading = document.querySelector('#github-section .not-found');
-                loading.classList.remove('invisible');
+                var notfound = document.querySelector('#github-section .not-found');
+                var text = document.createTextNode("Não foram encontrados repositórios.");
+                notfound.appendChild(text);
+                notfound.classList.remove('invisible');
             } else {
                 json.items.forEach(function (repository) {
                     var partial = "<div class='repository'>"+
@@ -136,8 +149,10 @@ function renderMeetupResults(map, url) {
             var json = JSON.parse(xhr.responseText);
 
             if (json.length == 0) {
-                var loading = document.querySelector('#maps-section .not-found');
-                loading.classList.remove('invisible');
+                var notfound = document.querySelector('#maps-section .not-found');
+                var text = document.createTextNode("Não foram encontrados eventos.");
+                notfound.appendChild(text);
+                notfound.classList.remove('invisible');
             } else {
                 json.forEach(function (techEvent) {
                     var content = getInfoWindow(techEvent);
