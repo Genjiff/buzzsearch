@@ -7,18 +7,21 @@ function renderTwitterResults(url, section) {
     xhr.addEventListener("load", function () {
         if (xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
-            json.forEach(function (element) {
-                var tweetBoxModel = document.getElementsByClassName('tweet-box');
-                var newTweetBox = tweetBoxModel[0].cloneNode();
 
-                newTweetBox.classList.remove("invisible");
+            if (json.length == 0) {
+                var loading = document.querySelector('#tweets-section .not-found');
+                loading.classList.remove('invisible');
+            } else {
+                json.forEach(function (element) {
+                    var tweetBoxModel = document.getElementsByClassName('tweet-box');
+                    var newTweetBox = tweetBoxModel[0].cloneNode();
 
-                newTweetBox.innerHTML = element.html;
-                document.getElementById(section).appendChild(newTweetBox);
-            });
+                    newTweetBox.classList.remove("invisible");
 
-            var loading = document.querySelector('#tweets-section .loading');
-            loading.classList.add('invisible');
+                    newTweetBox.innerHTML = element.html;
+                    document.getElementById(section).appendChild(newTweetBox);
+                });    
+            }
         } else {
             var errorBox = document.querySelector('#error-section');
             errorBox.classList.remove('invisible');
@@ -33,6 +36,9 @@ function renderTwitterResults(url, section) {
                 element.classList.add("invisible");
             });
         }
+
+        var loading = document.querySelector('#tweets-section .loading');
+        loading.classList.add('invisible');
     });
 
     xhr.onerror = function () {
@@ -63,23 +69,31 @@ function renderGithubResults(url, section) {
     xhr.addEventListener("load", function () {
         if (xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
-            json.items.forEach(function (repository) {
-                var partial = "<div class='repository'>"+
-                    "<h3><a href='"+ repository.html_url  +"' target='_blank'>" + repository.full_name + "</a></h3>" +
-                    "<ul>"+
-                        "<li>Estrelas: "+ repository.stargazers_count +"</li>"+
-                        "<li>Forks: " + repository.forks + "</li>"+
-                    "</ul>"+
-                "</div>";
+            if (json.items.length == 0) {
+                var loading = document.querySelector('#github-section .not-found');
+                loading.classList.remove('invisible');
+            } else {
+                json.items.forEach(function (repository) {
+                    var partial = "<div class='repository'>"+
+                        "<h3><a href='"+ repository.html_url  +"' target='_blank'>" + repository.full_name + "</a></h3>" +
+                        "<ul>"+
+                            "<li>Estrelas: "+ repository.stargazers_count +"</li>"+
+                            "<li>Forks: " + repository.forks + "</li>"+
+                        "</ul>"+
+                    "</div>";
 
-                document.getElementById(section).innerHTML += partial;
+                    document.getElementById(section).innerHTML += partial;
 
-                var loading = document.querySelector('#github-section .loading');
-                loading.classList.add('invisible');
-            });
+                    var loading = document.querySelector('#github-section .loading');
+                    loading.classList.add('invisible');
+                });
+            }
         } else {
             console.log("Error");
         }
+
+        var loading = document.querySelector('#github-section .loading');
+        loading.classList.add('invisible');
     });
     xhr.send();
 }
@@ -120,30 +134,34 @@ function renderMeetupResults(map, url) {
     xhr.addEventListener("load", function () {
         if (xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
-            json.forEach(function (techEvent) {
-                var content = getInfoWindow(techEvent);
-                var infowindow = new google.maps.InfoWindow({
-                    content: content
-                });
 
-                var position = {'lat': techEvent.group.lat, 'lng': techEvent.group.lon}
-                var marker = new google.maps.Marker({
-                    position: position,
-                    map: map,
-                    title: techEvent.name
-                });
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
+            if (json.length == 0) {
+                var loading = document.querySelector('#maps-section .not-found');
+                loading.classList.remove('invisible');
+            } else {
+                json.forEach(function (techEvent) {
+                    var content = getInfoWindow(techEvent);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: content
+                    });
 
-                
-            });
-
-            var loading = document.querySelector('#maps-section .loading');
-            loading.classList.add('invisible');
+                    var position = {'lat': techEvent.group.lat, 'lng': techEvent.group.lon}
+                    var marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        title: techEvent.name
+                    });
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+                });
+            }
         } else {
             console.log("Error");
         }
+
+        var loading = document.querySelector('#maps-section .loading');
+        loading.classList.add('invisible');
     });
 
     xhr.send();
